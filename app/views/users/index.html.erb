@@ -1,0 +1,6 @@
+<h2>Upload Sample</h2>
+
+<%= form_with url: result_path, method: :post, local: true do |f| %>
+	<%= f.file_field :file %>
+	<%= f.submit "Submit" %>
+<% end %>

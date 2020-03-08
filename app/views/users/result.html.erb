@@ -1,0 +1,22 @@
+<h1>Upload Result</h1>
+
+<h4><%= link_to "<--- Back to home", root_path %></h4>
+<h2>Total: <%= @total %></h2>
+<h2>Success: <%= @success %></h2>
+<div style="color: red">
+	<h2>Errors: <%= @failed %></h2>
+
+	<% @errors.each_with_index do |error, i| %>
+	<h4>Sheet-<%= i+1 %></h4>
+	<% error.map do |user| %>
+		<ul>
+			<h4>ROW: <%= user.row_number %></h4>
+			<% user.errors.full_messages.each do |msg| %>
+				<li>
+					<%= msg+"." %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+	<% end %>
+</div>
